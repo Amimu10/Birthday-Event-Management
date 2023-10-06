@@ -1,0 +1,45 @@
+[
+    {
+      "id": 1,
+      "image": "https://i.ibb.co/pwKj4nL/1.webp",
+      "name": "Deluxe Birthday Package",
+      "description": "Make your birthday memorable with our deluxe package. Includes premium decorations, cake, and entertainment.",
+      "price": "$399"
+    },
+    {
+      "id": 2,
+      "image": "https://i.ibb.co/C1VZLSC/2.webp",
+      "name": "Themed Extravaganza",
+      "description": "Transform your celebration with a themed extravaganza. Choose from a variety of themes to suit your style.",
+      "price": "$499"
+    },
+    {
+      "id": 3,
+      "image": "https://i.ibb.co/2nd78FT/3.webp",
+      "name": "VIP Birthday Experience",
+      "description": "Indulge in a VIP birthday experience with exclusive services, luxury decor, and personalized attention.",
+      "price": "$799"
+    },
+    {
+      "id": 4,
+      "image": "https://i.ibb.co/tBWVxT6/4.webp",
+      "name": "Outdoor Picnic Party",
+      "description": "Celebrate in the great outdoors with our picnic party package. Enjoy nature and festivities in one.",
+      "price": "$299"
+    },
+    {
+      "id": 5,
+      "image": "https://i.ibb.co/tYZwFv1/5.webp",
+      "name": "Virtual Celebration",
+      "description": "Host a virtual birthday celebration with friends and family. Virtual games, surprises, and shared moments.",
+      "price": "$199"
+    },
+    {
+      "id": 6,
+      "image": "https://i.ibb.co/nkNPD85/6.webp",
+      "name": "DIY Celebration Kit",
+      "description": "Create your celebration at home with our DIY kit. Decorations, cake mix, and party essentials included.",
+      "price": "$99"
+    }
+  ]
+  
