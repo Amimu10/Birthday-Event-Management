@@ -1,16 +1,24 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 
 const Navbar = () => {
+  const {user, logOut} = useContext(AuthContext);
 
   const [menu, setMenu] = useState(false);
 
+  const handleLogOut = () => {
+       logOut()
+       .then(() => console.log("user logged in"))
+       .catch(error => console.error(error))
+  }
+
   return (
     <div className="relative">
-      <nav className="flex justify-between items-center gap-4 my-8 p-4 shadow-md">
+      <nav className="flex justify-between items-center gap-4 my-8 p-4">
         <div>
         <h3 className="text-2xl font-semibold font-young text-orange-600">PartyPulse</h3>
         </div>
@@ -71,20 +79,38 @@ const Navbar = () => {
               Blog
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/login"
-              className={({ isActive, isPending }) =>
-                isPending
-                  ? "pending"
-                  : isActive
-                  ? "text-[#FF444A] underline"
-                  : ""
-              }
-            >
-              Login
-            </NavLink>
-          </li>
+        {
+          user? <>
+          <span>{user.photoURL}</span> <li> 
+          <NavLink onClick={handleLogOut}
+            className={({ isActive, isPending }) => 
+              isPending
+                ? "pending"
+                : isActive
+                ? "text-[#FF444A] underline"
+                : ""
+            }
+          >
+           <Link className="bg-[#7AA93C] text-white font-young font-thin px-4 py-2 rounded">Sign Out</Link>
+          </NavLink>
+        </li>
+          </>
+          :
+        <li>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "pending"
+                : isActive
+                ? "text-[#FF444A] underline"
+                : ""
+            }
+          >
+          <Link to="/login" className="bg-[#7AA93C] text-white font-young font-thin px-4 py-2 rounded">Login</Link>
+          </NavLink>
+        </li>
+        }
+       
         </div>
         <div className="md:hidden flex items-center gap-2">
         {menu ? (
@@ -157,8 +183,11 @@ const Navbar = () => {
               Blog
             </NavLink>
           </li>
+          {
+            user && <span>{user.email}</span> 
+          }
           <li>
-            <NavLink
+            <Link onClick={handleLogOut}
               to="/login"
               className={({ isActive, isPending }) =>
                 isPending
@@ -168,8 +197,8 @@ const Navbar = () => {
                   : ""
               }
             >
-              Login
-            </NavLink>
+              Sign Out         
+            </Link>
           </li>
               </ul>
             </div>
