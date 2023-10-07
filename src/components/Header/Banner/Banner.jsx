@@ -2,10 +2,9 @@ export default function Banner() {
     return (
       <div>
         <div
-          className="hero min-h-screen bg-cover bg-no-repeat  opacity-50"
+          className="hero min-h-screen bg-cover bg-no-repeat"
           style={{
             backgroundImage: "url(https://i.ibb.co/pwKj4nL/1.webp)",
-            opacity: 0.5 ,
           }}
         >
           <div className="hero-overlay"></div>
