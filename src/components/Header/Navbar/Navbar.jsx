@@ -3,7 +3,9 @@ import { NavLink } from "react-router-dom";
 
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
+
 const Navbar = () => {
+
   const [menu, setMenu] = useState(false);
 
   return (
