@@ -1,6 +1,11 @@
 
 import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import 'aos/dist/aos.css'; // Import the styles
+import AOS from 'aos';
+
+
+AOS.init();
 
 const ServiceDetails = () => {
     const items = useLoaderData([]);
@@ -16,7 +21,7 @@ const ServiceDetails = () => {
 const { name, image, description, price, rating } = item; 
 
   return (
-    <div className="flex flex-col justify-center items-center h-[70vh] mb-20">
+    <div  data-aos="zoom-out-left" className="flex flex-col justify-center items-center h-[70vh] mb-20">
       <h2 className="text-center my-20 text-[#1A1919] text-3xl font-extrabold">Service Details</h2>
       <div className="relative flex w-full max-w-[48rem] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
         <div className="relative m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">

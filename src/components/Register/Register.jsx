@@ -8,7 +8,7 @@ import Swal from 'sweetalert2'
 AOS.init();
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, handleUpdateProfile } = useContext(AuthContext);
   const navigate = useNavigate();
   const [passwordError, setPasswordError] = useState("");
 
@@ -16,9 +16,10 @@ const Register = () => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const name = form.get("name");
+    const photo = form.get("photo");
     const email = form.get("email");
     const password = form.get("password");
-    console.log(email, password, name);
+    console.log(email, password, name, photo);
     if (password.length < 6) {
       setPasswordError("Password must be at least 6 characters long");
       return;
@@ -40,14 +41,21 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
-        Swal.fire({
-          position: 'top',
-          icon: 'success',
-          title: 'User created successfully',
-          showConfirmButton: false,
-          timer: 1500
+        handleUpdateProfile(name, photo)
+        .then(() =>{
+          Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'User created successfully',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          navigate("/");
         })
-        navigate("/");
+        .catch(error =>{
+          console.error(error)
+        })
+   
       })
       .catch((error) => {
         console.error(error);
@@ -70,6 +78,18 @@ const Register = () => {
                   type="name"
                   name="name"
                   placeholder="name"
+                  className="input border-[#FDBF05] border-1 focus-border-none"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Photo URL</span>
+                </label>
+                <input
+                  type="name"
+                  name="photo"
+                  placeholder="Photo URL"
                   className="input border-[#FDBF05] border-1 focus-border-none"
                   required
                 />

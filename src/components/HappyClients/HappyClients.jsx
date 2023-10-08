@@ -1,6 +1,11 @@
 import React from "react";
 import Slider from "react-slick";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+import 'aos/dist/aos.css'; // Import the styles
+import AOS from 'aos';
+
+
+AOS.init();
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -75,7 +80,7 @@ const BirthdayEvents = () => {
   };
 
   return (
-    <div className="py-5">
+    <div data-aos="zoom-out-left" className="py-5">
       <div className="mb-8 text-center mt-12">
         <h1 className="lg:text-3xl text-2xl font-semibold font-young text-[#1A1919] text-center mb-4">Unforgettable Birthday Events</h1>
         <p className="text-lg font-young font-medium text-[#555]">

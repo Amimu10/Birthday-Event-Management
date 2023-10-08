@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa";
+import 'aos/dist/aos.css'; // Import the styles
+import AOS from 'aos';
+
+
+AOS.init();
 
 const Faq = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -37,7 +42,7 @@ const Faq = () => {
   ];
 
   return (
-    <div>
+    <div data-aos="zoom-in-up">
     <div className="text-center">
      <h2 className="lg:text-3xl text-2xl font-semibold font-young text-[#1A1919] text-center mt-14"> Frequently Asked Questions</h2>
      <p  className="text-lg text-[#555] text-center font-medium font-young mt-3 mb-6">Here are some common questions about our birthday event services. If you have any additional inquiries, feel free to contact us.</p>
