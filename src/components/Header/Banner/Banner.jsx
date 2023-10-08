@@ -1,6 +1,12 @@
+import 'aos/dist/aos.css'; // Import the styles
+import AOS from 'aos';
+
+
+AOS.init();
+
 export default function Banner() {
     return (
-      <div>
+      <div data-aos="flip-up">
         <div
           className="hero min-h-screen bg-cover bg-no-repeat"
           style={{

@@ -1,10 +1,14 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import "aos/dist/aos.css"; // Import the styles
+import AOS from "aos";
+
+AOS.init();
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext);
-    const navigate = useNavigate();
+  const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -14,16 +18,16 @@ const Register = () => {
     const password = form.get("password");
     console.log(email, password, name);
     createUser(email, password)
-    .then(result => {
+      .then((result) => {
         console.log(result.user);
-        navigate("/")  
-    })
-    .catch(error =>{
+        navigate("/");
+      })
+      .catch((error) => {
         console.error(error);
-    })
+      });
   };
   return (
-    <div>
+    <div data-aos="zoom-in-down">
       <div className="hero h-[80vh] bg-base-200 mb-24">
         <div className="hero-content flex-col">
           <h1 className="text-4xl font-semibold font-young text-[#A3A3A3]">
@@ -77,8 +81,8 @@ const Register = () => {
                   Register
                 </button>
               </div>
-              <p>
-                Already have an acoount?{" "}
+              <p className="flex gap-5">
+                Already have an account?
                 <Link className=" text-orange-600 font-semibold" to="/login">
                   Login
                 </Link>

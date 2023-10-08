@@ -81,7 +81,7 @@ const Navbar = () => {
           </li>
         {
           user? <>
-          <span>{user.photoURL}</span> <li> 
+          <li> 
           <NavLink onClick={handleLogOut}
             className={({ isActive, isPending }) => 
               isPending
