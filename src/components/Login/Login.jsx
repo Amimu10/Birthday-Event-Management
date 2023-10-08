@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import 'aos/dist/aos.css'; // Import the styles
 import AOS from 'aos';
+import Swal from 'sweetalert2'
 
 
 AOS.init();
@@ -10,6 +11,7 @@ AOS.init();
 const Login = () => {
     const {signInUser, signinWithGoogle} = useContext(AuthContext);
     const navigate = useNavigate();
+    const [loginError, setLoginError] = useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -17,21 +19,42 @@ const Login = () => {
     const email = form.get("email");
     const password = form.get("password");
     console.log(email, password);
+    setLoginError("");
     signInUser(email, password)
     .then(result =>{
         console.log(result.user);
+        Swal.fire({
+          position: 'top',
+          icon: 'success',
+          title: 'User login successful',
+          showConfirmButton: false,
+          timer: 1500
+        })
         e.target.reset();
         navigate("/")
     })
-    .then(error => {
-        console.error(error);  
-    }) 
+    .catch((error) => {
+      console.error(error);
+      // Check for specific error messages
+      if (error.code === "auth/wrong-password" || error.code === "auth/user-not-found") {
+        setLoginError("Invalid email or password. Please try again.");
+      } else {
+        setLoginError("An error occurred. Please try again later.");
+      }
+    });
   };
 
   const handleGoogleSign = () =>{
     signinWithGoogle()
     .then(result =>{
       console.log(result.user);
+      Swal.fire({
+        position: 'top',
+        icon: 'success',
+        title: 'User login successful',
+        showConfirmButton: false,
+        timer: 1500
+      })
       navigate("/")
     })
     .then(error =>{
@@ -81,6 +104,9 @@ const Login = () => {
                   </a>
                 </label>
               </div>
+              {loginError && (
+                <p className="text-red-500 mt-2">{loginError}</p>
+              )}
               <div className="form-control mt-6">
                 <button className="bg-[#FDBF05] font-thin font-young text-white p-2 rounded-md">
                   Login

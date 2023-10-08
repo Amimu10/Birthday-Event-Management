@@ -1,14 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import "aos/dist/aos.css"; // Import the styles
 import AOS from "aos";
+import Swal from 'sweetalert2'
 
 AOS.init();
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [passwordError, setPasswordError] = useState("");
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -17,9 +19,34 @@ const Register = () => {
     const email = form.get("email");
     const password = form.get("password");
     console.log(email, password, name);
+    if (password.length < 6) {
+      setPasswordError("Password must be at least 6 characters long");
+      return;
+    }
+
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+      setPasswordError("Email must be valid");
+      return;
+    }
+    if (!/[A-Z]/.test(password)) {
+      setPasswordError("Password must contain at least one capital letter");
+      return;
+    }
+
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+      setPasswordError("Password must contain at least one special character");
+      return;
+    }
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
+        Swal.fire({
+          position: 'top',
+          icon: 'success',
+          title: 'User created successfully',
+          showConfirmButton: false,
+          timer: 1500
+        })
         navigate("/");
       })
       .catch((error) => {
@@ -70,6 +97,9 @@ const Register = () => {
                   className="input border-[#FDBF05]"
                   required
                 />
+                {passwordError && (
+                  <p className="text-red-500 mt-2">{passwordError}</p>
+                )}
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?
