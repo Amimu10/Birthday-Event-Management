@@ -35,7 +35,7 @@ Visit the live site: [EventMagic](https://birthday-events-website.web.app/)
 1. Answer: A: {}
    The code defines a variable greeting but contains a typo (greetign). Despite the typo, JavaScript is forgiving and still creates the variable. When you log greetign , it outputs an empty object ({}). This is because JavaScript initializes variables even if there's a typo, resulting in the variable being defined as an empty object.
 
-2. Answer: D: 12
+2. Answer: C: 12
    Explanation: JavaScript performs type coercion when using the + operator. In the sum function, the number 1 is added to the string "2", resulting in the concatenation of the two values and producing the string "12".
 
 3.Answer: A: ['🍕', '🍫', '🥑', '🍔']
