@@ -82,8 +82,8 @@ const BirthdayEvents = () => {
   return (
     <div data-aos="zoom-out-left" className="py-5">
       <div className="mb-8 text-center mt-12">
-        <h1 className="lg:text-3xl text-2xl font-semibold font-young text-[#1A1919] text-center mb-4">Unforgettable Birthday Events</h1>
-        <p className="text-lg font-young font-medium text-[#555]">
+        <h1 className="lg:text-3xl md:text-2xl text-xl font-semibold font-young text-[#1A1919] text-center mb-4">Unforgettable Birthday Events</h1>
+        <p className="md:text-lg text-base font-young font-medium text-[#555]">
           Make your special day even more memorable with EventMagic! We specialize in creating
           magical birthday events for all ages. From creative decorations to engaging entertainment,
           we ensure a celebration filled with joy and laughter.
@@ -99,13 +99,13 @@ const BirthdayEvents = () => {
                 alt={`Event by ${testimonial.name}`}
               />
               <div className="p-6">
-                <h2 className="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">
+                <h2 className="tracking-widest text-sm title-font font-semibold text-gray-500 mb-1">
                   {testimonial.role}
                 </h2>
-                <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
+                <h1 className="title-font font-young text-lg font-medium text-gray-900 mb-3">
                   {testimonial.name}
                 </h1>
-                <p className="leading-relaxed mb-3">{testimonial.quote}</p>
+                <p className="leading-relaxed text-sm text-gray-500\ mb-3 font-young">{testimonial.quote}</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                   <div className="flex">
                     {Array.from({ length: 5 }).map((_, i) => (

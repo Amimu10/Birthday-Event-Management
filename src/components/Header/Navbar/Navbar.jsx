@@ -25,12 +25,12 @@ const Navbar = () => {
     <div className="relative">
       <nav className="flex justify-between items-center gap-4 my-6 p-4">
         <div>
-          <h3 className="text-2xl font-semibold font-young text-orange-600">
+          <h3 className="lg:text-2xl  font-semibold font-young text-orange-600">
           EventMagic
           </h3>
         </div>
-        <div className="md:flex gap-12 text-lg hidden list-none">
-          <li className="mt-1">
+        <div className="md:flex lg:gap-12 md:gap-6 text-lg hidden list-none">
+          <li className="md:mt-1">
             <NavLink
               to="/"
               className={({ isActive, isPending }) =>
@@ -44,7 +44,7 @@ const Navbar = () => {
               Home
             </NavLink>
           </li>
-          <li  className="mt-1">
+          <li  className="md:mt-1">
             <NavLink
               to="/contact"
               className={({ isActive, isPending }) =>
@@ -55,10 +55,10 @@ const Navbar = () => {
                   : "font-young font-medium text-[#656D76]"
               }
             >
-              Contact Us
+              Contact
             </NavLink>
           </li>
-          <li  className="mt-1">
+          <li  className="md:mt-1">
             <NavLink
               to="/blog"
               className={({ isActive, isPending }) =>
@@ -114,16 +114,16 @@ const Navbar = () => {
           {menu ? (
             <AiOutlineClose
               onClick={() => setMenu(false)}
-              className="text-center cursor-pointer text-3xl"
+              className="text-center cursor-pointer text-4xl text-[#FDBF05] font-black"
             />
           ) : (
             <AiOutlineMenu
               onClick={() => setMenu(true)}
-              className="text-center cursor-pointer text-3xl"
+              className="text-center cursor-pointer text-4xl text-[#FDBF05] font-black"
             />
           )}
           {menu && (
-            <div className="absolute top-20 right-0 text-lg  bg-gray-400 w-40 z-10 rounded-lg p-5">
+            <div className="absolute top-20 right-0 text-lg  bg-[#ABCE4E] w-40 z-10 rounded-lg p-5">
               <ul className="flex flex-col gap-4 list-none ">
                 <li>
                   <NavLink
@@ -150,7 +150,7 @@ const Navbar = () => {
                         : "font-young font-medium text-[#656D76]"
                     }
                   >
-                    Contact Us
+                    Contact
                   </NavLink>
                 </li>
                 <li>

@@ -14,10 +14,10 @@ const Service = ({ service }) => {
   <div data-aos="fade-down-right" className="text-center mb-3">
       <img src={image} alt="" />
       <div className="text-center mt-4">
-        <h3 className="text-2xl font-medium font-young text-[#A3A3A3]">
+        <h3 className="md:text-xl text-base font-medium font-young text-[#A3A3A3]">
           {name}
         </h3>
-        <p className="my-6 text-base font-young ">{description}</p>
+        <p className="my-6 lg:text-base text-sm font-young text-gray-500">{description}</p>
         <div data-aos="zoom-in-down">
         <Link
           to={`service/${id}`}

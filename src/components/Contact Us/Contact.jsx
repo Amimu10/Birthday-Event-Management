@@ -28,30 +28,32 @@ const Contact= () => {
     <div data-aos="zoom-out-down">
   <div className="container mx-auto max-w-md mt-10 p-6 bg-white rounded-md shadow-md">
       <h2 className="text-2xl font-semibold font-young mb-6">Contact Us</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}> 
         <div className="mb-4">
-          <label htmlFor="name" className="block text-sm font-medium text-gray-600">
-            <FaUser className="inline mr-2" />
+          <label htmlFor="name" className="block text-sm font-medium font-young text-gray-600">
+            <FaUser className="inline mr-2" /> 
             Name
           </label>
           <input
             type="text"
             id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
+            placeholder="Name" 
+            name="name" 
+            value={formData.name} 
+            onChange={handleChange} 
             className="mt-1 p-2 w-full border-2 border-[#FDBF05]  outline-none rounded-md"
             required
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="email" className="block text-sm font-medium text-gray-600">
+          <label htmlFor="email" className="block text-sm font-medium font-young text-gray-600">
             <FaEnvelope className="inline mr-2" />
             Email
           </label>
           <input
             type="email"
             id="email"
+            placeholder="Email"
             name="email"
             value={formData.email}
             onChange={handleChange}
@@ -60,13 +62,14 @@ const Contact= () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="phone" className="block text-sm font-medium text-gray-600">
+          <label htmlFor="phone" className="block text-sm font-medium font-young text-gray-600">
             <FaPhone className="inline mr-2" />
             Phone
           </label>
           <input
             type="tel"
             id="phone"
+            placeholder="Phone"
             name="phone"
             value={formData.phone}
             onChange={handleChange}
@@ -74,13 +77,14 @@ const Contact= () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="message" className="block text-sm font-medium text-gray-600">
+          <label htmlFor="message" className="block text-sm font-medium font-young text-gray-600">
             <FaComment className="inline mr-2" />
             Message
           </label>
           <textarea
             id="message"
             name="message"
+            placeholder="Message"
             value={formData.message}
             onChange={handleChange}
             rows="4"
