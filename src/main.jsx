@@ -12,10 +12,10 @@ import Contact from './components/Contact Us/Contact';
 import Blog from './components/Blog/Blog';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
-import Services from './components/Services/Services';
 import ServiceDetails from './components/SerViceDetails/ServiceDetails';
 import AuthProvider from './Providers/AuthProvider';
 import PrivateRoute from './PrivateRote/PrivateRoute';
+
 
 const router = createBrowserRouter([
   {
@@ -27,25 +27,17 @@ const router = createBrowserRouter([
         element: <Home></Home>
       },
       {
-        path: "/services",  
-        element: <Services></Services>    
-      },
-      {
         path: "/service/:id",
         loader: () => fetch("/data.json"),
         element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>
       },
       {
         path: "/contact",
-        element: <Contact></Contact>
-      },
-      {
-        path: "/contact",
-        element: <Contact></Contact> 
+        element: <PrivateRoute><Contact></Contact></PrivateRoute>
       },
       {
         path: "/blog",
-        element: <Blog></Blog> 
+        element: <PrivateRoute> <Blog></Blog> </PrivateRoute>
       },
       {
         path: "/Login",
