@@ -4,7 +4,7 @@ Welcome to the EventMagic website! This project showcases our event planning ser
 
 ## Live Site
 
-Visit the live site: [EventMagic](https://your-live-site-url.com)   
+Visit the live site: [EventMagic](https://birthday-events-website.web.app/)   
 
 ## Features and Functionalities
 
